@@ -217,7 +217,7 @@ You can use any of the tools provided to you to find and read files that help an
 You have access to file system tools and thinking tools:
 - **list_allowed_directories**: See what directories you can access
 - **list_directory**: List files in directories (USE THIS FIRST to see all available files)
-- **read_file**: Read individual files
+- **read_file**: Read individual files 
 - **read_multiple_files**: Read multiple files at once
 - **search_files**: Find files containing specific content (may not find files if exact text doesn't match)
 - **think_tool**: For reflection and strategic planning during research
@@ -326,7 +326,12 @@ After each ConductResearch tool call, use think_tool to analyze the results:
 - Do NOT use metrics or XML tags in your response.
 - You MUST use the provided tool definitions to call tools.
 - Do NOT generate text representing a tool call; invoke the tool officially.
-</Tool Usage Guidelines>"""
+</Tool Usage Guidelines>
+
+CRITICAL FORMAT WARNING:
+- NEVER write a tool name like this: ConductResearch={{"research_topic": "..."}}
+- ALWAYS call the tool using the tool-calling interface with the name "ConductResearch" and a SEPARATE "research_topic" argument.
+- The tool name must be ONLY the word: ConductResearch — with NO equals sign, NO JSON, NO braces in the name."""
 
 compress_research_system_prompt = """You are a research assistant that has conducted research on a topic by calling several tools and web searches. Your job is now to clean up the findings, but preserve all of the relevant statements and information that the researcher has gathered. For context, today's date is {date}.
 
