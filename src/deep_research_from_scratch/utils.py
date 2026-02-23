@@ -7,6 +7,8 @@ including web search capabilities and content summarization tools.
 
 from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 from typing_extensions import Annotated, List, Literal
 
 from langchain.chat_models import init_chat_model 

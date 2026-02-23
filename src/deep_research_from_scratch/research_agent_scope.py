@@ -11,6 +11,8 @@ whether sufficient context exists to proceed with research.
 
 from datetime import datetime
 from typing_extensions import Literal
+from dotenv import load_dotenv
+load_dotenv()
 
 
 from langchain.chat_models import init_chat_model

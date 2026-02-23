@@ -7,6 +7,8 @@ This module implements:
 """
 
 import uuid
+from dotenv import load_dotenv
+load_dotenv()
 from pathlib import Path
 from datetime import datetime
 from typing import List, Annotated, Literal, Optional, Sequence

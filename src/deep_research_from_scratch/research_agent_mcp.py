@@ -15,6 +15,8 @@ Key features:
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 from typing_extensions import Literal
 
@@ -53,8 +55,9 @@ def get_mcp_client():
     return _client
 
 # Initialize models
+# openai/gpt-oss-20b: Groq production model optimized for agentic/tool-use workflows
 compress_model = init_chat_model("groq:llama-3.3-70b-versatile")
-model = init_chat_model("groq:llama-3.3-70b-versatile")
+model = init_chat_model("groq:openai/gpt-oss-20b")
 
 # ===== AGENT NODES =====
 

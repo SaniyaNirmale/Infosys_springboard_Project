@@ -11,6 +11,8 @@ maintaining isolated context windows for each research topic.
 """
 
 import asyncio
+from dotenv import load_dotenv
+load_dotenv()
 
 from typing_extensions import Literal
 
@@ -65,7 +67,8 @@ except ImportError:
 # ===== CONFIGURATION =====
 
 supervisor_tools = [ConductResearch, ResearchComplete, think_tool]
-supervisor_model = init_chat_model("groq:llama-3.3-70b-versatile")
+# openai/gpt-oss-20b: Groq production model optimized for agentic/tool-use workflows
+supervisor_model = init_chat_model("groq:openai/gpt-oss-20b")
 supervisor_model_with_tools = supervisor_model.bind_tools(supervisor_tools)
 
 # System constants

@@ -5,6 +5,8 @@ This module implements a research agent that can perform iterative web searches
 and synthesis to answer complex research questions.
 """
 
+from dotenv import load_dotenv
+load_dotenv()
 from pydantic import BaseModel, Field
 from typing_extensions import Literal
 
@@ -24,8 +26,8 @@ tools = [tavily_search, think_tool]
 tools_by_name = {tool.name: tool for tool in tools}
 
 # Initialize models
-# Initialize models
-model = init_chat_model("groq:llama-3.3-70b-versatile")
+# openai/gpt-oss-20b: Groq production model optimized for agentic/tool-use workflows
+model = init_chat_model("groq:openai/gpt-oss-20b")
 model_with_tools = model.bind_tools(tools)
 summarization_model = init_chat_model("groq:llama-3.3-70b-versatile")
 compress_model = init_chat_model("groq:llama-3.3-70b-versatile")

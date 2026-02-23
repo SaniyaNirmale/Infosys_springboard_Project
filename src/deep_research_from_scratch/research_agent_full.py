@@ -14,6 +14,8 @@ input through final report delivery.
 
 import os
 import uuid
+from dotenv import load_dotenv
+load_dotenv()
 from langchain_core.messages import HumanMessage
 from langgraph.graph import StateGraph, START, END
 
